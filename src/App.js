@@ -1,9 +1,10 @@
+import { Header } from './components/Header'
 
 function App() {
   return (
-    <div>
-      Hello, we are start our project! I`m veeeery excited
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
