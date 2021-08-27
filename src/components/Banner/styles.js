@@ -8,6 +8,8 @@ export const ContainerBanner = styled.nav`
     position: relative;
 
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
     transition: filter .4s ease-in;
 
     filter: brightness(.35);
@@ -22,34 +24,7 @@ export const ContainerBanner = styled.nav`
     -moz-box-shadow: inset 2px -7px 79px -5px rgba(0,0,0,1);
     box-shadow: inset 2px -7px 79px -5px rgba(0,0,0,1);
 
-   /* > div {
-       display: flex;
-       align-items: center;
-       gap: .09rem;
-       
-       position: absolute;
-       right: 2rem;
-       top: 1rem;
-
-       transition: all .2s;
-
-       span {
-           font-size: 1.2rem;
-           cursor: pointer;
-           color: #fff;
-       }
-
-       svg {
-           font-size: 1.4rem;
-           color: #fff;
-       }
-         
-       &:hover {
-            filter: brightness(.8);
-       }
-    } */
-
-   &:hover {
+    &:hover {
        filter: brightness(1);
-   }
+    }
 `
