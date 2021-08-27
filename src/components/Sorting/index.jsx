@@ -1,17 +1,18 @@
 import { ContainerSort, ContainerOptions } from './styles'
 
-import { IoMdArrowDropright } from 'react-icons/io'
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md'
 import { useState } from 'react'
 
 export function Sorting() {
     const [ showOptions, setShowOptions ] = useState(false)
 
     const keyWordToFilter = ['Price', 'Score', 'A-Z']
+
     return (
         <ContainerSort>
-             <div onClick={ () => setShowOptions(state => !state)}>
+            <div onClick={ () => setShowOptions(state => !state)}>
                 <span>Sort by</span>
-                <IoMdArrowDropright />
+                { !showOptions ? <MdArrowDropDown /> : <MdArrowDropUp />}
             </div>
             { showOptions && (
                 <ContainerOptions>
