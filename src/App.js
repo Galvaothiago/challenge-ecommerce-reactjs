@@ -8,7 +8,7 @@ function App() {
       <Header />
       <Banner />
       <ContainerMain>
-        <div>Hello</div>
+        
       </ContainerMain>
     </>
   );
@@ -19,7 +19,7 @@ const ContainerMain = styled.main`
   width: 100%;
   height: calc(100vh - 21rem);
 
-  padding: 1.5rem 6rem;
+  padding: 0 6rem;
   overflow-y: auto;
 
   background: #fbfff1;
