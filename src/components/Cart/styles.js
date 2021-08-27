@@ -17,14 +17,14 @@ export const ContainerCart = styled.div`
 
     div {
         position: absolute;
-        width: .93rem;
-        height: .93rem;
+        width: 1.1rem;
+        height: 1.1rem;
         text-align: center;
 
         border-radius: 50%;
-        line-height: 1rem;
-        background: #fed766;
-        color: black;
+        line-height: 1.1rem;
+        background: #cf5c36;
+        color: #eff1f3;
         font-size: .78rem;
 
         top: 0;

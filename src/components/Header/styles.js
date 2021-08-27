@@ -8,8 +8,9 @@ export const ContainerHeader = styled.header`
 
     padding: 1rem 2rem;
 
-    height: 7rem;
+    height: 6rem;
     background: #272727;
+    /* position: fixed; */
 
     p {
         color: #fff;
