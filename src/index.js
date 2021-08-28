@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { GlobalStyle } from './global';
 
+import { ProductsProvider } from '../src/context/ProductsContext'
+
 ReactDOM.render(
-  <>
-    <App />
-    <GlobalStyle />
-  </>,
+  <ProductsProvider>
+    <>
+      <App />
+      <GlobalStyle />
+    </>
+  </ProductsProvider>,
   document.getElementById('root')
 );
