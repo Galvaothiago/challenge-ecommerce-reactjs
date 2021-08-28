@@ -33,7 +33,7 @@ export const ContainerInfo = styled.section`
         display: block;
         text-align: center;
 
-        margin-top: 1rem;
+        margin-top: 2rem;
         font-size: 1.8rem;
         font-weight: 200;
         color: #fffafb;
