@@ -139,7 +139,7 @@ export const ContainerRight = styled.div`
         h3 {
             text-align: right;
             margin-right: .5rem;
-            font-size: 1.35rem;
+            font-size: 1.15rem;
             font-weight: 300;
 
             text-transform: uppercase;
@@ -151,7 +151,7 @@ export const ContainerRight = styled.div`
             text-align: center;
 
             margin-top: .4rem;
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 200;
             letter-spacing: -1px;
 
@@ -166,8 +166,7 @@ export const ContainerRight = styled.div`
     footer {
         width: 100%;
         height: 15rem;
-
-        /* background: red; */
+        padding-top: 1rem;
 
         h3 {
             text-align: right;
@@ -176,7 +175,7 @@ export const ContainerRight = styled.div`
             text-transform: uppercase;
             color: #cf5c36;
 
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 300; 
         }
 
