@@ -10,7 +10,7 @@ export const ContainerHeader = styled.header`
 
     height: 6rem;
     background: #272727;
-    /* position: fixed; */
+    position: sticky;
 
     p {
         color: #fff;

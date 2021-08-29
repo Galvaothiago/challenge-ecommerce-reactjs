@@ -13,6 +13,9 @@ export const ContainerBanner = styled.nav`
     transition: filter .4s ease-in;
 
     filter: brightness(.35);
+
+    /* position: relative;
+    z-index: -1; */
     
     background: black;
     background-image: url(${(props) => props.backgroundDynamic});
