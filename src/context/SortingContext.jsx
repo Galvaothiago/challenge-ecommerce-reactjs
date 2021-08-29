@@ -5,52 +5,61 @@ import games from '../products.json'
 export const SortingContext = createContext({})
 
 export function SortingProvider({ children }) {
-    const [ products, setProducts ] = useState(games)
+  const [ products, setProducts ] = useState(games)
+  const [ showOptions, setShowOptions ] = useState(false)
 
-    const handleSorting = (sortType) => {
-        switch (sortType) {
-            case 'A-Z':
-                const sortingByAlphabetcal = games.sort((a, b) => {
-                    const nameA = a.name.toUpperCase()
-                    const  nameB = b.name.toUpperCase()
+  const handleSorting = (sortType) => {
+    setTimeout(() => {
+      setShowOptions(state => !state)
+    }, 1200)
 
-                    if (nameA < nameB) {
-                      return -1
-                    }
-                    if (nameA > nameB) {
-                      return 1
-                    }
+    switch (sortType) {
+      case 'A-Z':
+        const sortingByAlphabetcal = games.sort((a, b) => {
+          const nameA = a.name.toUpperCase()
+          const  nameB = b.name.toUpperCase()
+
+            if (nameA < nameB) {
+              return -1
+            }
+            if (nameA > nameB) {
+              return 1
+            }
                     
-                    return 0 // names must be equal
-                  });
+            return 0 // names must be equal
+        });
 
-                setProducts([...sortingByAlphabetcal]);
+        setProducts([...sortingByAlphabetcal])
+        
+        break;
+        
+      case 'Price':
+        const sortingByPrice = games.sort((a, b) => a.price - b.price)
+        setProducts([...sortingByPrice])
 
-              break;
-            case 'Price':
-                const sortingByPrice = games.sort((a, b) => a.price - b.price)
-                setProducts([...sortingByPrice])
+        break
 
-                break
-            case 'Score':
-                const sortingByScore = games.sort((a, b) => b.score - a.score )
-                setProducts([...sortingByScore])
+      case 'Score':
+        const sortingByScore = games.sort((a, b) => b.score - a.score )
+        setProducts([...sortingByScore])
 
-              break;
+        break;
 
-            default:
-                setProducts(games)         
-          }
+      default:
+          setProducts(games)         
     }
+  }
 
-    return (
-        <SortingContext.Provider 
-            value={{
-                handleSorting,
-                products
-            }}>
+  return (
+    <SortingContext.Provider 
+        value={{
+            handleSorting,
+            setShowOptions,
+            showOptions,
+            products
+        }}>
 
-            {  children }
-        </SortingContext.Provider>
-    )
+        {  children }
+    </SortingContext.Provider>
+  )
 }

@@ -6,8 +6,7 @@ import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md'
 import { SortingContext } from '../../context/SortingContext'
 
 export function Sorting() {
-    const { handleSorting } = useContext(SortingContext)
-    const [ showOptions, setShowOptions ] = useState(false)
+    const { handleSorting, setShowOptions, showOptions } = useContext(SortingContext)
 
     const keyWordToFilter = ['Price', 'Score', 'A-Z']
 
