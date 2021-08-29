@@ -7,9 +7,7 @@ import { ProductsContext } from '../src/context/ProductsContext'
 import { Card } from './components/CardGame';
 
 function App() {
-  const { products, listAllProducts } = useContext(ProductsContext)
-
-  listAllProducts()
+  const { products } = useContext(ProductsContext)
 
   return (
     <>
