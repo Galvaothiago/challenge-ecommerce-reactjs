@@ -5,6 +5,9 @@ import { Banner } from './components/Banner';
 import { useContext } from 'react'
 import { SortingContext } from '../src/context/SortingContext'
 import { Card } from './components/CardGame';
+
+import { Switch, Route } from "react-router-dom";
+
 import { Checkout } from './components/Checkout';
 
 function App() {
@@ -15,9 +18,18 @@ function App() {
       <Header />
       <ContainerMain>
         <Banner />
-        <Grid>
-          { products.map( product => <Card key={product.id} infoGame={product}/> ) }
-        </Grid>
+        <Switch>
+          <Route exact path="/">
+            <Grid>
+              { products.map( product => <Card key={product.id} infoGame={product}/> ) }
+            </Grid>
+          </Route>
+          <Route path="/checkout">
+            <Checkout>
+
+            </Checkout>
+          </Route>
+        </Switch>
       </ContainerMain>
     </>
   );
