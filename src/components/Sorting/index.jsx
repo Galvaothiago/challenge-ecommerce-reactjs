@@ -3,10 +3,10 @@ import { ContainerSort, ContainerOptions } from './styles'
 
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md'
 
-import { ProductsContext } from '../../context/ProductsContext'
+import { SortingContext } from '../../context/SortingContext'
 
 export function Sorting() {
-    const { handleSorting } = useContext(ProductsContext)
+    const { handleSorting } = useContext(SortingContext)
     const [ showOptions, setShowOptions ] = useState(false)
 
     const keyWordToFilter = ['Price', 'Score', 'A-Z']

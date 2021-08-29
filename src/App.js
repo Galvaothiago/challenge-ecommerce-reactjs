@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { Banner } from './components/Banner';
 
 import { useContext } from 'react'
-import { ProductsContext } from '../src/context/ProductsContext'
+import { SortingContext } from '../src/context/SortingContext'
 import { Card } from './components/CardGame';
 
 function App() {
-  const { products } = useContext(ProductsContext)
+  const { products } = useContext(SortingContext)
 
   return (
     <>

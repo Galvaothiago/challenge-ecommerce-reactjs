@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { GlobalStyle } from './global';
 
-import { ProductsProvider } from '../src/context/ProductsContext'
+import { SortingProvider } from '../src/context/SortingContext'
+import { CartProvider } from './context/CartContext';
 
 ReactDOM.render(
-  <ProductsProvider>
-    <>
-      <App />
-      <GlobalStyle />
-    </>
-  </ProductsProvider>,
+  <CartProvider>
+    <SortingProvider>
+      <>
+        <App />
+        <GlobalStyle />
+      </>
+    </SortingProvider>
+  </CartProvider>,
   document.getElementById('root')
 );
