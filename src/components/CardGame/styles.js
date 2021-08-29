@@ -111,7 +111,7 @@ export const ContainerAddToCart = styled.footer`
     justify-content: flex-end;
     align-items: flex-end;
 
-    height: 50%;
+    height: 35%;
     padding: .2rem;
 
     div {

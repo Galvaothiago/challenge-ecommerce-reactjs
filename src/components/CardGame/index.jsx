@@ -1,9 +1,12 @@
 import { ContainerAddToCart, ContainerCard, ContainerImg, ContainerInfo, ContainerScore } from './styles'
 import  { MdStar } from 'react-icons/md'
 import { BiCart } from 'react-icons/bi'
+
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
  
 export function Card({ infoGame }) {
-    console.log(infoGame)
+    const { addProduct } = useContext(CartContext)
     return (
         <ContainerCard>
             <ContainerImg>
@@ -20,7 +23,7 @@ export function Card({ infoGame }) {
                 <h1>{infoGame.name}</h1>
                 <span>{ new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'BRL' }).format(infoGame.price) }</span>
                 <ContainerAddToCart>
-                    <div>
+                    <div onClick={ () => addProduct(infoGame.id)}>
                         <BiCart />
                         <button>add to cart</button>
                     </div>

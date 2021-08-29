@@ -5,6 +5,7 @@ import { Banner } from './components/Banner';
 import { useContext } from 'react'
 import { SortingContext } from '../src/context/SortingContext'
 import { Card } from './components/CardGame';
+import { Checkout } from './components/Checkout';
 
 function App() {
   const { products } = useContext(SortingContext)
