@@ -1,21 +1,42 @@
 import { ContainerCheckout, ContainerLeft, ContainerRight, Content, ContentEmpty } from './styles'
 import { BsFillTrashFill } from 'react-icons/bs'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 
 export function Checkout() {
-    const { cart } = useContext(CartContext)
+    const { cart, removeProduct, calculateSubtotal, calculateShipping, calculateTotal } = useContext(CartContext)
     
     const products = [...cart]
     const isCartEmpty = products.length === 0
 
+    const [ subTotal, setSubTotal ] = useState(0)
+    const [ shippingValue, setShippingValue ] = useState(0)
+    const [ isShippingFree, setIsShippingFree ] = useState(false)
+
+    const [ total, setTotal ] = useState(0)
+
+
+    useEffect(() => {
+        const [values, valueNotFormated] = calculateSubtotal(products)
+        const [shipping, shippingNotFormated] = calculateShipping(products, valueNotFormated)
+
+        const total = calculateTotal(valueNotFormated, shippingNotFormated)
+
+        setSubTotal(values)
+        setShippingValue(shipping)
+        setIsShippingFree(Boolean(shippingNotFormated))
+        setTotal(total)
+    }, [products])
+
     window.scrollTo(0, 450)
+
+    console.log(isShippingFree)
 
     return (
         <ContainerCheckout>
             { isCartEmpty ? (
                 <ContentEmpty>
-                    <span>your cart is empty yet!</span>
+                    <span>your cart is empty!</span>
                 </ContentEmpty>
             ) : (
                 <Content>
@@ -29,23 +50,23 @@ export function Checkout() {
                                     <p>{ product.name }</p>
                                     <span>{ new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'BRL' }).format(product?.price)}</span>
                                 </div>
-                                <BsFillTrashFill />
+                                <BsFillTrashFill onClick={ () => removeProduct(product.id)}/>
                             </article>
                         )) }
                     </div>
                 </ContainerLeft>
-                <ContainerRight>
-                    <div>
+                <ContainerRight isShippingFree={ isShippingFree }>
+                    <header>
                         <h3>subtotal</h3>
-                        <span>50,00</span>
-                    </div>
+                        <span>{ subTotal }</span>
+                    </header>
                     <div>
                         <h3>shipping</h3>
-                        <span>10,00</span>
+                        <span>{ shippingValue }</span>
                     </div>
                     <footer>
                         <h3>total</h3>
-                        <span>60,00</span>
+                        <span>{ total }</span>
                         <button>checkout</button>
                     </footer>
 

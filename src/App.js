@@ -25,9 +25,7 @@ function App() {
             </Grid>
           </Route>
           <Route path="/checkout">
-            <Checkout>
-
-            </Checkout>
+            <Checkout />
           </Route>
         </Switch>
       </ContainerMain>

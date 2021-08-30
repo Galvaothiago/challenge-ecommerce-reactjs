@@ -2,11 +2,16 @@ import styled from 'styled-components'
 
 export const ContainerCheckout = styled.section`
     width: 100%;
-    height: 480px;
+    min-height: 480px;
+    height: 100%;
 
     padding: 0 6rem;
     margin-top: -2rem;
     z-index: 3;
+
+    @media(max-width: 600px) {
+        padding: 0 .8rem;
+    }
 
 `
 
@@ -21,11 +26,18 @@ export const Content = styled.div`
     border-radius: 4px;
     border-top: 2px solid #cf5c36;
     border-right: 2px solid #cf5c36;
+
+    @media(max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+
+        border-right: 0;
+    }
 `
 
 export const ContentEmpty = styled.div`
     width: 100%;
-    height: 100%;
+    height: 450px;
 
     display: grid;
     place-items: center;
@@ -62,7 +74,7 @@ export const ContainerLeft = styled.div`
 
     div {
         width: 100%;
-        height: 90%;
+        height: 100%;
         margin-top: 1rem;
         
         overflow-y: auto;
@@ -86,6 +98,11 @@ export const ContainerLeft = styled.div`
             border-radius: 18px;
             padding: .7rem 1rem;
             background: #272727;
+
+            
+            @media(max-width: 600px) {
+                width: 100%;
+            }
 
             img {
                 width: 4.5rem;
@@ -127,9 +144,7 @@ export const ContainerRight = styled.div`
     height: 100%;
     padding: 2rem .5rem .5rem .5rem;
 
-    /* background: yellow; */
-
-    div {
+    header {
         width: 100%;
         height: auto;
 
@@ -158,9 +173,39 @@ export const ContainerRight = styled.div`
             color: #dcdcdd;
         }
 
-        & + div {
-            margin-top: 1rem;
+    }
+
+    div {
+        width: 100%;
+        height: auto;
+        margin-top: 1rem;
+
+        border-bottom: 1px solid gray;
+        padding-bottom: .5rem;
+
+        h3 {
+            text-align: right;
+            margin-right: .5rem;
+            font-size: 1.15rem;
+            font-weight: 300;
+
+            text-transform: uppercase;
+            color: ${({ isShippingFree }) => isShippingFree ? '#dcdcdd' : '#909090'};
         }
+
+        span {
+            display: block;
+            text-align: center;
+
+            margin-top: .4rem;
+            font-size: 1.75rem;
+            font-weight: 200;
+            letter-spacing: -1px;
+            text-decoration: ${({ isShippingFree }) => isShippingFree ? '' : 'line-through'};
+
+            color: ${({ isShippingFree }) => isShippingFree ? '#dcdcdd' : '#909090'};
+        }
+ 
     }
 
     footer {
@@ -199,7 +244,8 @@ export const ContainerRight = styled.div`
             border-radius: 5px;
             border: 0;
             background: linear-gradient(#cf5c36, transparent);
-            color: #dcdcdd;
+            /* color: #dcdcdd; */
+            color: #909090;
             cursor: pointer;
 
             font-size: 1.1rem;
@@ -220,5 +266,11 @@ export const ContainerRight = styled.div`
             }
         }
 
+    }
+
+    @media(max-width: 600px) {
+        padding: 2rem 2rem 0;
+
+        margin-top: 1rem;
     }
 `
