@@ -12,9 +12,12 @@ export const ContainerHeader = styled.header`
     background: #272727;
     position: sticky;
 
-    p {
+    a {
         color: #fff;
         font-weight: 700;
-        font-size: 1.65rem;
+        font-size: 1.55rem;
+        text-decoration: none;
+
+        cursor: pointer;
     }
 `

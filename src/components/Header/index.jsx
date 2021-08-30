@@ -1,11 +1,13 @@
 import { ContainerHeader } from './styles'
 import { Cart } from '../Cart'
 
+import { Link } from 'react-router-dom'
+
 
 export function Header() {
     return (
         <ContainerHeader>
-            <p>Ecommerce</p>
+            <Link to="/">Ecommerce</Link>
             <Cart />
         </ContainerHeader>
     )
