@@ -20,12 +20,39 @@ export const Content = styled.div`
     height: 100%;
 
     display: flex;
+    position: relative;
     
     padding: 1rem;
     background: linear-gradient(#4b4b4d, transparent);
     border-radius: 4px;
     border-top: 2px solid #cf5c36;
     border-right: 2px solid #cf5c36;
+
+    a {
+        width: 3.5rem;
+        height: 3.5rem;
+
+        display: grid;
+        place-items: center;
+
+
+        background: #4b4b4d;
+        border-radius: 50%;
+        transition: transform .3s;
+
+        position: absolute;
+        top: -4rem;
+        left: 0;
+
+        svg {
+            font-size: 2rem;
+            color: #dcdcdd;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
 
     @media(max-width: 600px) {
         display: flex;
@@ -41,6 +68,7 @@ export const ContentEmpty = styled.div`
 
     display: grid;
     place-items: center;
+    position: relative;
 
     background: linear-gradient(#4b4b4d, transparent);
     border-radius: 4px;
@@ -53,6 +81,32 @@ export const ContentEmpty = styled.div`
 
         color: #dcdcdd;
 
+    }
+
+    a {
+        width: 3.5rem;
+        height: 3.5rem;
+
+        display: grid;
+        place-items: center;
+
+
+        background: #4b4b4d;
+        border-radius: 50%;
+        transition: transform .3s;
+
+        position: absolute;
+        top: -4rem;
+        left: 0;
+
+        svg {
+            font-size: 2rem;
+            color: #dcdcdd;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+        }
     }
 `
 
@@ -244,7 +298,6 @@ export const ContainerRight = styled.div`
             border-radius: 5px;
             border: 0;
             background: linear-gradient(#cf5c36, transparent);
-            /* color: #dcdcdd; */
             color: #909090;
             cursor: pointer;
 

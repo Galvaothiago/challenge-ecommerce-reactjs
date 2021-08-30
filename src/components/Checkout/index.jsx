@@ -1,7 +1,8 @@
 import { ContainerCheckout, ContainerLeft, ContainerRight, Content, ContentEmpty } from './styles'
-import { BsFillTrashFill } from 'react-icons/bs'
+import { BsFillTrashFill, BsArrowLeftShort } from 'react-icons/bs'
 import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
 export function Checkout() {
     const { cart, removeProduct, calculateSubtotal, calculateShipping, calculateTotal } = useContext(CartContext)
@@ -36,10 +37,16 @@ export function Checkout() {
         <ContainerCheckout>
             { isCartEmpty ? (
                 <ContentEmpty>
+                    <Link to="/">
+                        <BsArrowLeftShort />
+                    </Link>
                     <span>your cart is empty!</span>
                 </ContentEmpty>
             ) : (
                 <Content>
+                    <Link to="/">
+                        <BsArrowLeftShort />
+                    </Link>
                 <ContainerLeft>
                     <h3>Your orders:</h3>
                     <div>
