@@ -1,10 +1,21 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import games from '../products.json'
 
 export const CartContext = createContext({})
 
 export function CartProvider({ children }) {
     const [ cart, setCart ] = useState([])
+
+    useEffect(() => {
+        const myProducts = JSON.parse(localStorage.getItem('cartProducts'))
+        if(myProducts) {
+            setCart(myProducts)
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('cartProducts', JSON.stringify(cart))
+    }, [cart])
 
     const formatPrice = (value) => {
         const valueFormated = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'BRL' }).format(value)
@@ -35,7 +46,6 @@ export function CartProvider({ children }) {
         const quantityItems = productsCart.length
         const shippingValue = quantityItems * 10
 
-        console.log(subTotal)
         if(subTotal >= 250) {
             return [
                 formatPrice(0),

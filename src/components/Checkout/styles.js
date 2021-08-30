@@ -130,9 +130,7 @@ export const ContainerLeft = styled.div`
         width: 100%;
         height: 100%;
         margin-top: 1rem;
-        
-        overflow-y: auto;
-
+    
         padding-right: 1rem;
 
         display: flex;

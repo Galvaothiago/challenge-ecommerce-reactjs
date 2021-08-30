@@ -29,9 +29,7 @@ export function Checkout() {
         setTotal(total)
     }, [products])
 
-    window.scrollTo(0, 450)
-
-    console.log(isShippingFree)
+    window.scrollTo(0, 250)
 
     return (
         <ContainerCheckout>
